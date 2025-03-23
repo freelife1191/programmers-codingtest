@@ -1,4 +1,4 @@
-package com.tidesquare.level0;
+package com.tidesquare.level0.hard;
 
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

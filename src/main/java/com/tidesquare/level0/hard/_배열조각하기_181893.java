@@ -1,7 +1,6 @@
-package com.tidesquare.level0;
+package com.tidesquare.level0.hard;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class _배열조각하기_181893 {
     public static void main(String[] args) {
