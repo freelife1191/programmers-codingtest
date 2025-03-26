@@ -9,38 +9,37 @@ import java.text.DecimalFormat;
 public class _간단한식계산하기_181865 {
     public static void main(String[] args) {
         String binomial = "43 + 12";
-        String operator = findOperator(binomial);
-        String[] strArr = binomial.split("[+\\-*/]"); // +, -, *, /로 분리
-        int num1 = Integer.parseInt(strArr[0].strip());
-        int num2 = Integer.parseInt(strArr[1].strip());
-        // 연산 수행
-        int answer = (int) calculate(num1, num2, operator);
-        System.out.println(answer);
-    }
-
-    // 연산자 찾는 함수
-    private static String findOperator(String expression) {
-        if (expression.contains("+")) return "+";
-        if (expression.contains("-")) return "-";
-        if (expression.contains("*")) return "*";
-        if (expression.contains("/")) return "/";
-        return null;
-    }
-
-    // 연산 수행 함수
-    private static double calculate(double num1, double num2, String operator) {
-        switch (operator) {
-            case "+":
-                return num1 + num2;
-            case "-":
-                return num1 - num2;
-            case "*":
-                return num1 * num2;
-            case "/":
-                if (num2 == 0) throw new ArithmeticException("0으로 나눌 수 없습니다.");
-                return num1 / num2;
+        String[] parts = binomial.split(" ");
+        int a = Integer.parseInt(parts[0]);
+        int b = Integer.parseInt(parts[2]);
+        char op = parts[1].charAt(0);
+        int result = 0;
+        switch (op) {
+            case '+':
+                result = a + b;
+                break;
+            case '-':
+                result = a - b;
+                break;
+            case '*':
+                result = a * b;
+                break;
             default:
-                throw new IllegalArgumentException("알 수 없는 연산자: " + operator);
+                throw new IllegalArgumentException("Invalid operator: " + op);
         }
+        System.out.println(result);
     }
 }
+/*
+public int solution(String binomial) {
+    String[] cal = binomial.split(" ");
+
+    if (cal[1].equals("+")) {
+        return (Integer.parseInt(cal[0])) + (Integer.parseInt(cal[2]));
+    } else if (cal[1].equals("-")) {
+        return (Integer.parseInt(cal[0])) - (Integer.parseInt(cal[2]));
+    } else {
+        return (Integer.parseInt(cal[0])) * (Integer.parseInt(cal[2]));
+    }
+}
+*/
